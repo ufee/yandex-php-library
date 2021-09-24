@@ -40,7 +40,7 @@ use Yandex\Speller\SpellerClient;
                               class="form-control"
                               rows="3"
                               placeholder="Text to check"
-                              required><?= isset($_POST['text']) ? $_POST['text'] : ''; ?></textarea>
+                              required><?= isset($_POST['text']) ? htmlspecialchars($_POST['text']) : ''; ?></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -51,7 +51,7 @@ use Yandex\Speller\SpellerClient;
                            id="lang"
                            name="lang"
                            placeholder="ru,en"
-                           value="<?= isset($_POST['lang']) ? $_POST['lang'] : SpellerClient::LANGUAGE_DEFAULT; ?>">
+                           value="<?= isset($_POST['lang']) ? htmlspecialchars($_POST['lang']) : SpellerClient::LANGUAGE_DEFAULT; ?>">
                 </div>
             </div>
             <div class="form-group">
@@ -62,7 +62,7 @@ use Yandex\Speller\SpellerClient;
                            id="options"
                            name="options"
                            placeholder="0"
-                           value="<?= isset($_POST['options']) ? $_POST['options'] : SpellerClient::OPTION_DEFAULT; ?>">
+                           value="<?= isset($_POST['options']) ? htmlspecialchars($_POST['options']) : SpellerClient::OPTION_DEFAULT; ?>">
                 </div>
             </div>
             <div class="form-group">
