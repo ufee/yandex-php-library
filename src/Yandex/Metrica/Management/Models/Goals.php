@@ -1,38 +1,37 @@
 <?php
-
 namespace Yandex\Metrica\Management\Models;
-
 use Yandex\Common\ObjectModel;
 
 class Goals extends ObjectModel
 {
-
-    protected $collection = [];
-
+    protected array $collection = [];
     protected $mappingClasses = [];
-
     protected $propNameMap = [];
 
+    public function __construct(array $collection = [])
+    {
+        foreach($collection as $val) {
+			$this->add($val);
+		}
+    }
+
     /**
-     * @param Goal|array $goal
-     *
-     * @return $this
+     * Add item
      */
-    public function add($goal)
+    public function add($goal): self
     {
         if (is_array($goal)) {
             $this->collection[] = new Goal($goal);
         } elseif (is_object($goal) && $goal instanceof Goal) {
             $this->collection[] = $goal;
         }
-
         return $this;
     }
 
     /**
-     * @return Goal[]
+     * Get items
      */
-    public function getAll()
+    public function getAll(): array
     {
         return $this->collection;
     }

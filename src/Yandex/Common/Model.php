@@ -61,7 +61,6 @@ abstract class Model
                     $this->add($val);
                 }
             }
-
             $propertyName = $key;
             $ourPropertyName = array_search($propertyName, $this->propNameMap);
 

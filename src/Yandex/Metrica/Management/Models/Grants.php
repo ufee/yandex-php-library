@@ -1,38 +1,37 @@
 <?php
-
 namespace Yandex\Metrica\Management\Models;
-
 use Yandex\Common\ObjectModel;
 
 class Grants extends ObjectModel
 {
-
-    protected $collection = [];
-
+    protected array $collection = [];
     protected $mappingClasses = [];
-
     protected $propNameMap = [];
 
+    public function __construct(array $collection = [])
+    {
+        foreach($collection as $val) {
+			$this->add($val);
+		}
+    }
+	
     /**
-     * @param array|Grant $grant
-     *
-     * @return $this
+     * Add item
      */
-    public function add($grant)
+    public function add($grant): self
     {
         if (is_array($grant)) {
             $this->collection[] = new Grant($grant);
         } elseif (is_object($grant) && $grant instanceof Grant) {
             $this->collection[] = $grant;
         }
-
         return $this;
     }
 
     /**
-     * @return Grant[]
+     * Get items
      */
-    public function getAll()
+    public function getAll(): array
     {
         return $this->collection;
     }

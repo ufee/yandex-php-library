@@ -7,7 +7,6 @@ use Yandex\Common\Model;
 
 class GetGoalsResponse extends Model
 {
-
     protected $goals = null;
 
     protected $mappingClasses = [
