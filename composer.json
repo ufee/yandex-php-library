@@ -1,6 +1,6 @@
 {
-    "name": "harlamoff/yandex-php-library",
-    "description": "Official Yandex PHP library",
+    "name": "ufee/yandex-php-library",
+    "description": "Yandex PHP library",
     "keywords":["yandex","sdk"],
     "type":"library",
     "license": "MIT",
